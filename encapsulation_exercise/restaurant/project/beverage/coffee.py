@@ -7,13 +7,9 @@ class Coffee(HotBeverage):
     PRICE = 3.50
 
     def __init__(self, name, caffeine):
-        super().__init__(name, price=self.PRICE, milliliters=self.MILLILITERS)
-        self.caffeine = caffeine
+        super().__init__(name, price=Coffee.PRICE, milliliters=Coffee.MILLILITERS)
+        self.__caffeine = caffeine
 
     @property
     def caffeine(self):
         return self.__caffeine
-
-    @caffeine.setter
-    def caffeine(self, value):
-        self.__caffeine = value
