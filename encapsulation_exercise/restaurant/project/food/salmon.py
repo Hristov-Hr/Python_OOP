@@ -6,4 +6,4 @@ class Salmon(MainDish):
     GRAMS = 22
 
     def __init__(self, name, price):
-        super(Salmon, self).__init__(name, price, grams=self.GRAMS)
+        super(Salmon, self).__init__(name, price, grams=Salmon.GRAMS)
