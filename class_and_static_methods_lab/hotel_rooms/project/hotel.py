@@ -18,13 +18,14 @@ class Hotel:
     def take_room(self, room_number, people):
         room = [r for r in self.rooms if room_number == r.number][0]
         guests = room.take_room(people)
-        if isinstance(guests, int):
-            self.guests += guests
+        if not guests:
+            self.guests += people
 
     def free_room(self, room_number):
         room = [r for r in self.rooms if room_number == r.number][0]
-        guests = room.free_room()
-        self.guests -= guests
+        people = room.guests
+        room.free_room()
+        self.guests -= people
 
     def status(self):
         return f"Hotel {self.name} has {self.guests} total guests\n" \
