@@ -46,16 +46,19 @@ class Computer(ABC):
             raise ValueError("Model name cannot be empty.")
         self.__model = value
 
+    def power_of_two(self, ram):
+        result = log2(ram)
+        return result.is_integer()
+
     def configure_computer(self, processor: str, ram: int):
         if processor not in self.valid_processor:
             raise ValueError(f"{processor} is not compatible with {self.type} {self.manufacturer} {self.model}!")
-        power = log2(ram)
-        if not 2 <= ram <= self.max_ram or not power.is_integer():
+        if ram > self.max_ram or not self.power_of_two(ram):
             raise ValueError(f"{ram}GB RAM is not compatible with {self.type} {self.manufacturer} {self.model}!")
         self.processor = processor
         self.ram = ram
         self.price += self.valid_processor[processor]
-        self.price += int(power) * 100
+        self.price += int(log2(ram)) * 100
         return f"Created {self.__repr__()} for {self.price}$."
 
     def __repr__(self):
