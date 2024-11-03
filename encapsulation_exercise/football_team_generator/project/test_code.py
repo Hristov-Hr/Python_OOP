@@ -1,5 +1,5 @@
-from project.player import Player
-from project.team import Team
+from project import Player
+from project import Team
 
 
 p = Player("Pall", 1, 3, 5, 7)
