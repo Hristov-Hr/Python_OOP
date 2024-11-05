@@ -38,3 +38,9 @@ class BaseClimber(ABC):
     @abstractmethod
     def climb(self, peak: BasePeak):
         ...
+
+    def rest(self):
+        self.strength += 15
+
+    def __str__(self):
+        return f"{self.__class__.__name__}: /// Climber name: {self.name} * Left strength: {float(self.strength)} * Conquered peaks: {', '.join(c for c in sorted(self.conquered_peaks))} ///"
