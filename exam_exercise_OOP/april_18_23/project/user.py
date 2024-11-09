@@ -52,9 +52,10 @@ class User:
         return self.rating
 
     def decrease_rating(self):
-        if self.rating < 2:
+        new_rating = self.rating - 2
+        if new_rating < 0:
             self.is_blocked = True
-        self.rating = max(0, self.rating - 2)
+        self.rating = max(0, new_rating)
         return self.rating
 
     def __str__(self):
