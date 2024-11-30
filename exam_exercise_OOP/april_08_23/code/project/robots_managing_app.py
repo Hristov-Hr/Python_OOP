@@ -77,4 +77,4 @@ class RobotsManagingApp:
 
     def __str__(self):
 
-        return "\n".join([s.details() for s in self.services])
+        return "\n".join([s.details for s in self.services])

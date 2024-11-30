@@ -25,7 +25,7 @@ class Band:
         return f"Album {album_name} has been removed."
 
     def details(self):
-        albums = "\n".join([a.details() for a in self.albums])
+        albums = "\n".join([a.details for a in self.albums])
         return f"Band {self.name}\n" \
                f"{albums}"
 
@@ -35,7 +35,7 @@ print(song.get_info())
 album = Album("Initial D", song)
 second_song = Song("Around the World", 2.34, False)
 print(album.add_song(second_song))
-print(album.details())
+print(album.details)
 print(album.publish())
 band = Band("Manuel")
 print(band.add_album(album))
