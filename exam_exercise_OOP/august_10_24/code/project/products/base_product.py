@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 
 class BaseProduct(ABC):
 
-    def __init__(self, model: str, price: float, material: str, sub_type: str):
+    def __init__(self, model, price, material, sub_type):
         self.model = model
         self.price = price
         self.material = material
