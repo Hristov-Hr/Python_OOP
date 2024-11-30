@@ -5,7 +5,7 @@ from project.products.base_product import BaseProduct
 
 class BaseStore(ABC):
 
-    def __init__(self, name: str, location: str, capacity: int):
+    def __init__(self, name, location, capacity):
         self.name = name
         self.location = location
         self.capacity = capacity
@@ -27,7 +27,7 @@ class BaseStore(ABC):
 
     @location.setter
     def location(self, value):
-        if len(value) != 3 or value[1] == '':
+        if len(value.strip()) != 3 or value[1] == '':
             raise ValueError("Store location must be 3 chars long!")
         self.__location = value
 
